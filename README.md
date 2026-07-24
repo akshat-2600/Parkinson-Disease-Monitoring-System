@@ -59,6 +59,9 @@ Provides lifestyle and healthcare recommendations based on AI prediction results
 
 # 🏗️ System Architecture
 
+<p align="center">
+  <img src="screenshots/systemFlow.png" width="900">
+</p>
 
 
 ---
