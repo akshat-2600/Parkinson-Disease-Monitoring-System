@@ -1,0 +1,23 @@
+/* ============================================================
+   variables.css — Design Tokens
+   ============================================================ */
+:root {
+  --bg-0:#050810; --bg-1:#090d1a; --bg-2:#0e1425; --bg-3:#131a30;
+  --glass:rgba(255,255,255,0.035); --glass-border:rgba(255,255,255,0.07); --glass-hover:rgba(255,255,255,0.055);
+  --cyan:#00d4ff; --cyan-dim:rgba(0,212,255,0.15); --cyan-glow:rgba(0,212,255,0.35);
+  --violet:#7b5cff; --violet-dim:rgba(123,92,255,0.15);
+  --green:#00e5a0; --green-dim:rgba(0,229,160,0.15);
+  --amber:#ffb547; --amber-dim:rgba(255,181,71,0.15);
+  --red:#ff4e6a;   --red-dim:rgba(255,78,106,0.15);
+  --rose:#ff6b9d;
+  --text-1:#f0f4ff; --text-2:#8892b0; --text-3:#4a5578;
+  --sidebar-w:260px; --topbar-h:64px;
+  --radius:16px; --radius-sm:10px;
+  --transition:0.25s cubic-bezier(0.4,0,0.2,1);
+  --font-display:'Syne',sans-serif; --font-mono:'DM Mono',monospace; --font-body:'Inter',sans-serif;
+}
+[data-theme="light"] {
+  --bg-0:#f0f2f8; --bg-1:#e8eaf4; --bg-2:#ffffff; --bg-3:#f5f6fc;
+  --glass:rgba(255,255,255,0.70); --glass-border:rgba(0,0,20,0.08); --glass-hover:rgba(255,255,255,0.90);
+  --text-1:#0a0e1f; --text-2:#3d4466; --text-3:#8890b0;
+}

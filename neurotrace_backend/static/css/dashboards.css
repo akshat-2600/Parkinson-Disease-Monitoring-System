@@ -1,0 +1,242 @@
+/* ============================================================
+   styles/dashboards.css — Role-specific dashboard layouts
+   ============================================================ */
+
+/* ── Doctor header banner ── */
+.doctor-header {
+  background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 22px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+  position: relative; overflow: hidden;
+}
+.doctor-header::after {
+  content: '';
+  position: absolute; right: -40px; top: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(123,92,255,0.12), transparent 70%);
+  pointer-events: none;
+}
+.doctor-info { display: flex; align-items: center; gap: 16px; }
+.doctor-avatar-wrap {
+  position: relative;
+}
+.doctor-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--cyan));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 22px; font-weight: 800; color: white;
+  box-shadow: 0 0 20px rgba(123,92,255,0.35);
+  flex-shrink: 0;
+}
+.doctor-online-dot {
+  position: absolute; bottom: 2px; right: 2px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--bg-2);
+  box-shadow: 0 0 8px rgba(0,229,160,0.6);
+}
+.doctor-name-wrap .name {
+  font-family: var(--font-display); font-size: 18px; font-weight: 700;
+}
+.doctor-name-wrap .role-tag {
+  font-size: 10px; font-family: var(--font-mono); color: var(--violet);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+.doctor-stats {
+  display: flex; gap: 24px;
+}
+.doc-stat { text-align: center; }
+.doc-stat .val {
+  font-family: var(--font-display); font-size: 24px; font-weight: 800;
+  color: var(--cyan);
+}
+.doc-stat .lbl {
+  font-size: 10px; font-family: var(--font-mono);
+  color: var(--text-3); text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ── Patient list table ── */
+.patient-table-wrap {
+  overflow-x: auto;
+}
+.patient-table {
+  width: 100%; border-collapse: collapse;
+}
+.patient-table th {
+  font-size: 10px; font-family: var(--font-mono);
+  text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--text-3); padding: 10px 14px;
+  text-align: left; border-bottom: 1px solid var(--glass-border);
+  white-space: nowrap;
+}
+.patient-table td {
+  padding: 12px 14px; font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  vertical-align: middle;
+}
+.patient-table tr:last-child td { border-bottom: none; }
+.patient-table tr:hover td { background: var(--glass); cursor: pointer; }
+.patient-table tr { transition: background var(--transition); }
+
+.pt-name-cell { display: flex; align-items: center; gap: 10px; }
+.pt-mini-avatar {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; font-family: var(--font-display); color: white;
+}
+.pt-uid { font-size: 10px; color: var(--text-3); font-family: var(--font-mono); margin-top: 1px; }
+
+.severity-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-family: var(--font-mono);
+  padding: 3px 10px; border-radius: 99px; font-weight: 600;
+}
+.sev-low      { background: var(--green-dim); color: var(--green); }
+.sev-moderate { background: var(--amber-dim); color: var(--amber); }
+.sev-high     { background: var(--red-dim);   color: var(--red); }
+
+.table-search-bar {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.table-search {
+  flex: 1; background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm); padding: 9px 14px 9px 36px;
+  font-size: 13px; font-family: var(--font-body); color: var(--text-1);
+  outline: none; transition: border-color var(--transition);
+  position: relative;
+}
+.table-search:focus { border-color: var(--cyan); }
+.search-icon-wrap { position: relative; flex: 1; }
+.search-icon-wrap svg {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  color: var(--text-3); pointer-events: none;
+}
+
+/* ── Patient profile panel ── */
+.patient-profile-header {
+  background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex; gap: 22px;
+  position: relative; overflow: hidden;
+  margin-bottom: 24px;
+}
+.patient-profile-header::after {
+  content: ''; position: absolute; right: -30px; top: -30px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, var(--cyan-dim), transparent 70%);
+}
+.profile-avatar-large {
+  width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 30px; font-weight: 800; color: white;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  box-shadow: 0 0 30px rgba(0,212,255,0.3);
+}
+.profile-details { flex: 1; }
+.profile-name {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+}
+.profile-id { font-size: 11px; font-family: var(--font-mono); color: var(--cyan); margin-top: 2px; }
+.profile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+/* ── Patient own dashboard ── */
+.patient-welcome {
+  background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 20px;
+  position: relative; overflow: hidden;
+}
+.patient-welcome::after {
+  content: ''; position: absolute; right: -20px; top: -20px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,160,0.08), transparent 70%);
+}
+.welcome-avatar {
+  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--green), var(--cyan));
+  font-family: var(--font-display); font-size: 26px; font-weight: 800; color: white;
+  box-shadow: 0 0 24px rgba(0,229,160,0.35);
+}
+.welcome-text .greeting {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+}
+.welcome-text .sub {
+  font-size: 13px; color: var(--text-2); margin-top: 4px;
+}
+.welcome-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ── Report card ── */
+.report-card {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: var(--radius); padding: 18px 20px;
+  transition: all var(--transition);
+}
+.report-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-1px); }
+.report-title { font-size: 14px; font-weight: 600; }
+.report-meta {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 11px; font-family: var(--font-mono); color: var(--text-3);
+  margin-top: 6px;
+}
+.report-body { font-size: 13px; color: var(--text-2); line-height: 1.6; margin-top: 10px; }
+
+/* ── Role badge in topbar ── */
+.role-badge {
+  font-size: 10px; font-family: var(--font-mono); letter-spacing: 1px;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 99px;
+}
+.role-badge.doctor  { background: var(--violet-dim); color: var(--violet); border: 1px solid rgba(123,92,255,0.3); }
+.role-badge.patient { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(0,229,160,0.3); }
+
+/* ── Modal ── */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-backdrop.open { display: flex; }
+.modal {
+  background: var(--bg-1); border: 1px solid var(--glass-border);
+  border-radius: 20px; padding: 32px;
+  width: 100%; max-width: 480px;
+  animation: authCardIn 0.3s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+}
+.modal::before {
+  content: ''; position: absolute; top: 0; left: 20px; right: 20px; height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), transparent);
+}
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+}
+.modal-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+.modal-close {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  color: var(--text-2); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition);
+}
+.modal-close:hover { background: var(--glass-hover); color: var(--text-1); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .doctor-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .doctor-stats  { gap: 16px; }
+  .patient-welcome { flex-direction: column; align-items: flex-start; }
+  .welcome-actions { margin-left: 0; }
+  .patient-profile-header { flex-direction: column; }
+}

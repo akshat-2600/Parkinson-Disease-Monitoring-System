@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroTrace — Parkinson's Intelligence Platform</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Core CSS (served by Flask via url_for) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}" />
+  <!-- Auth + Role CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboards.css') }}" />
+</head>
+<body>
+
+  <!-- Mobile sidebar overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- App shell — hidden until auth completes -->
+  <div id="sidebar-root"  style="display:none"></div>
+  <div class="main" id="main-shell" style="display:none">
+    <div id="topbar-root"></div>
+    <div class="content" id="content-root">
+      <div id="page-dashboard"       class="page"></div>
+      <div id="page-realtime"        class="page"></div>
+      <div id="page-history"         class="page"></div>
+      <div id="page-explanation"     class="page"></div>
+      <div id="page-progression"     class="page"></div>
+      <div id="page-recommendations" class="page"></div>
+    </div>
+  </div>
+
+  <!-- Pass Flask config to JS -->
+  <script>
+    // API base URL injected by Flask at render time — no hardcoding needed
+    window.NEUROTRACE_CONFIG = {
+      apiBase:     "{{ api_base }}",
+      flaskEnv:    "{{ flask_env }}",
+      version:     "{{ version }}"
+    };
+  </script>
+
+  <!-- ── Utilities ──────────────────────────────────────── -->
+  <script src="{{ url_for('static', filename='js/utils/helpers.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/utils/charts.js') }}"></script>
+
+  <!-- ── API layer ──────────────────────────────────────── -->
+  <script src="{{ url_for('static', filename='js/api/client.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/api/fallback.js') }}"></script>
+
+  <!-- ── Auth layer ─────────────────────────────────────── -->
+  <script src="{{ url_for('static', filename='js/auth/auth.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/auth/auth_ui.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/auth/doctor_dashboard.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/auth/patient_dashboard.js') }}"></script>
+
+  <!-- ── Components ─────────────────────────────────────── -->
+  <script src="{{ url_for('static', filename='js/components/sidebar.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/components/topbar.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/components/gauge.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/components/skeletons.js') }}"></script>
+
+  <!-- ── Pages ──────────────────────────────────────────── -->
+  <script src="{{ url_for('static', filename='js/pages/dashboard.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pages/explanation.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pages/recommendations.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pages/history.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pages/realtime.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pages/progression.js') }}"></script>
+
+  <!-- ── App bootstrap ──────────────────────────────────── -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

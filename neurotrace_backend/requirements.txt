@@ -1,0 +1,44 @@
+# ── Web framework ──────────────────────────────────────────────
+flask
+flask-jwt-extended
+flask-sqlalchemy
+flask-migrate
+flask-cors
+flask-bcrypt
+
+# ── ML & Data ──────────────────────────────────────────────────
+numpy
+pandas
+scikit-learn==1.6.1
+joblib
+shap
+lime
+
+# ── PyTorch (CPU) — swap cpu→cu118 for GPU server ──────────────
+# Install manually: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+timm          # EfficientNet-B3/B4 architecture builder
+
+# ── Audio / Voice feature extraction ───────────────────────────
+librosa
+soundfile
+praat-parselmouth
+
+# ── Image processing ────────────────────────────────────────────
+Pillow
+opencv-python-headless
+
+# ── Gradient boosting (fusion stacker + clinical model) ─────────
+lightgbm
+xgboost
+catboost
+
+# ── Utils ───────────────────────────────────────────────────────
+python-dotenv
+marshmallow
+pydantic
+werkzeug
+gunicorn
+scipy
+scikit-image   # LBP + GLCM for spiral feature extraction
